@@ -36,9 +36,7 @@ def init_beam_pipeline(
         pipeline_root=pipeline_root,
         components=components,
         enable_cache=False,
-        metadata_connection_config=metadata.sqlite_metadata_connection_config(
-            metadata_path
-        ),
+        metadata_connection_config=metadata.sqlite_metadata_connection_config(metadata_path),
         beam_pipeline_args=beam_arg,
     )
     return p

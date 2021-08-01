@@ -29,9 +29,7 @@ OUTPUT_DIR = os.path.join("gs://", configs.GCS_BUCKET_NAME)
 
 # TFX produces two types of outputs, files and metadata.
 # - Files will be created under PIPELINE_ROOT directory.
-PIPELINE_ROOT = os.path.join(
-    OUTPUT_DIR, "tfx_pipeline_output", configs.PIPELINE_NAME
-)
+PIPELINE_ROOT = os.path.join(OUTPUT_DIR, "tfx_pipeline_output", configs.PIPELINE_NAME)
 
 # The last component of the pipeline, "Pusher" will produce serving model under
 # SERVING_MODEL_DIR.

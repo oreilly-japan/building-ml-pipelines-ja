@@ -17,9 +17,7 @@ persistent_volume_mount = "/tfx-data"
 
 # temp yaml file for Kubeflow Pipelines
 output_filename = f"{pipeline_name}.yaml"
-output_dir = os.path.join(
-    os.getcwd(), "pipelines", "kubeflow_pipelines", "argo_pipeline_files"
-)
+output_dir = os.path.join(os.getcwd(), "pipelines", "kubeflow_pipelines", "argo_pipeline_files")
 
 # pipeline inputs
 data_dir = os.path.join(persistent_volume_mount, "data")

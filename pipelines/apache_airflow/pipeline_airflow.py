@@ -5,7 +5,9 @@ from typing import Text
 from base_pipeline import init_components
 from tfx.orchestration import metadata, pipeline
 from tfx.orchestration.airflow.airflow_dag_runner import (
-    AirflowDagRunner, AirflowPipelineConfig)
+    AirflowDagRunner,
+    AirflowPipelineConfig,
+)
 
 pipeline_name = "consumer_complaint_pipeline_airflow"
 airflow_dir = os.path.join(os.environ["HOME"], "airflow")
@@ -22,9 +24,7 @@ airflow_config = {
 }
 
 
-def init_pipeline(
-    components, pipeline_root: Text, direct_num_workers: int
-) -> pipeline.Pipeline:
+def init_pipeline(components, pipeline_root: Text, direct_num_workers: int) -> pipeline.Pipeline:
 
     beam_arg = [
         f"--direct_num_workers={direct_num_workers}",
@@ -34,9 +34,7 @@ def init_pipeline(
         pipeline_root=pipeline_root,
         components=components,
         enable_cache=True,
-        metadata_connection_config=metadata.sqlite_metadata_connection_config(
-            metadata_path
-        ),
+        metadata_connection_config=metadata.sqlite_metadata_connection_config(metadata_path),
         beam_pipeline_args=beam_arg,
     )
     return p

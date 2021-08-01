@@ -48,9 +48,7 @@ def fill_in_missing(x: Union[tf.Tensor, tf.SparseTensor]) -> tf.Tensor:
     return tf.squeeze(x, axis=1)
 
 
-def convert_num_to_one_hot(
-    label_tensor: tf.Tensor, num_labels: int = 2
-) -> tf.Tensor:
+def convert_num_to_one_hot(label_tensor: tf.Tensor, num_labels: int = 2) -> tf.Tensor:
     """
     Convert a label (0 or 1) into a one-hot vector
     Args:
@@ -93,9 +91,7 @@ def preprocessing_fn(inputs: tf.Tensor) -> tf.Tensor:
 
     for key in features.ONE_HOT_FEATURES.keys():
         dim = features.ONE_HOT_FEATURES[key]
-        int_value = tft.compute_and_apply_vocabulary(
-            fill_in_missing(inputs[key]), top_k=dim + 1
-        )
+        int_value = tft.compute_and_apply_vocabulary(fill_in_missing(inputs[key]), top_k=dim + 1)
         outputs[features.transformed_name(key)] = convert_num_to_one_hot(
             int_value, num_labels=dim + 1
         )

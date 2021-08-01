@@ -89,12 +89,8 @@ def preprocessing_fn(inputs):
 
     for key in ONE_HOT_FEATURES.keys():
         dim = ONE_HOT_FEATURES[key]
-        int_value = tft.compute_and_apply_vocabulary(
-            fill_in_missing(inputs[key]), top_k=dim + 1
-        )
-        outputs[transformed_name(key)] = convert_num_to_one_hot(
-            int_value, num_labels=dim + 1
-        )
+        int_value = tft.compute_and_apply_vocabulary(fill_in_missing(inputs[key]), top_k=dim + 1)
+        outputs[transformed_name(key)] = convert_num_to_one_hot(int_value, num_labels=dim + 1)
 
     for key, bucket_count in BUCKET_FEATURES.items():
         temp_feature = tft.bucketize(

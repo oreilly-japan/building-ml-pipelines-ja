@@ -23,16 +23,26 @@ from typing import Any, Dict, List, Optional, Text
 
 import tensorflow_model_analysis as tfma
 from ml_metadata.proto import metadata_store_pb2
-from tfx.components import (CsvExampleGen, Evaluator, ExampleValidator, Pusher,
-                            ResolverNode, SchemaGen, StatisticsGen, Trainer,
-                            Transform)
+from tfx.components import (
+    CsvExampleGen,
+    Evaluator,
+    ExampleValidator,
+    Pusher,
+    ResolverNode,
+    SchemaGen,
+    StatisticsGen,
+    Trainer,
+    Transform,
+)
 from tfx.components.base import executor_spec
 from tfx.components.trainer import executor as trainer_executor
 from tfx.dsl.experimental import latest_blessed_model_resolver
-from tfx.extensions.google_cloud_ai_platform.pusher import \
-    executor as ai_platform_pusher_executor
-from tfx.extensions.google_cloud_ai_platform.trainer import \
-    executor as ai_platform_trainer_executor
+from tfx.extensions.google_cloud_ai_platform.pusher import (
+    executor as ai_platform_pusher_executor,
+)
+from tfx.extensions.google_cloud_ai_platform.trainer import (
+    executor as ai_platform_trainer_executor,
+)
 from tfx.orchestration import pipeline
 from tfx.proto import pusher_pb2, trainer_pb2
 from tfx.types import Channel
@@ -50,9 +60,7 @@ def create_pipeline(
     eval_args: trainer_pb2.EvalArgs,
     eval_accuracy_threshold: float,
     serving_model_dir: Text,
-    metadata_connection_config: Optional[
-        metadata_store_pb2.ConnectionConfig
-    ] = None,
+    metadata_connection_config: Optional[metadata_store_pb2.ConnectionConfig] = None,
     beam_pipeline_args: Optional[List[Text]] = None,
     ai_platform_training_args: Optional[Dict[Text, Text]] = None,
     ai_platform_serving_args: Optional[Dict[Text, Any]] = None,
@@ -99,9 +107,7 @@ def create_pipeline(
         "transform_graph": transform.outputs["transform_graph"],
         "train_args": train_args,
         "eval_args": eval_args,
-        "custom_executor_spec": executor_spec.ExecutorClassSpec(
-            trainer_executor.GenericExecutor
-        ),
+        "custom_executor_spec": executor_spec.ExecutorClassSpec(trainer_executor.GenericExecutor),
     }
     if ai_platform_training_args is not None:
         trainer_args.update(
@@ -165,9 +171,7 @@ def create_pipeline(
         "model": trainer.outputs["model"],
         "model_blessing": evaluator.outputs["blessing"],
         "push_destination": pusher_pb2.PushDestination(
-            filesystem=pusher_pb2.PushDestination.Filesystem(
-                base_directory=serving_model_dir
-            )
+            filesystem=pusher_pb2.PushDestination.Filesystem(base_directory=serving_model_dir)
         ),
     }
     if ai_platform_serving_args is not None:

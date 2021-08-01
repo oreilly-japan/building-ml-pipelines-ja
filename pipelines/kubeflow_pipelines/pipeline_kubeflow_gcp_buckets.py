@@ -12,9 +12,7 @@ pipeline_name = "consumer_complaint_pipeline_kubeflow"
 
 # temp yaml file for Kubeflow Pipelines
 output_filename = f"{pipeline_name}.yaml"
-output_dir = os.path.join(
-    os.getcwd(), "pipelines", "kubeflow_pipelines", "argo_pipeline_files"
-)
+output_dir = os.path.join(os.getcwd(), "pipelines", "kubeflow_pipelines", "argo_pipeline_files")
 
 # Directory and data locations (uses Google Cloud Storage).
 input_bucket = "gs://consumer_complaint_gcp_cloud_ai"

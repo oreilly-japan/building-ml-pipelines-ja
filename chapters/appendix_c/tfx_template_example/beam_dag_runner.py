@@ -34,12 +34,8 @@ OUTPUT_DIR = "."
 # TFX produces two types of outputs, files and metadata.
 # - Files will be created under PIPELINE_ROOT directory.
 # - Metadata will be written to SQLite database in METADATA_PATH.
-PIPELINE_ROOT = os.path.join(
-    OUTPUT_DIR, "tfx_pipeline_output", configs.PIPELINE_NAME
-)
-METADATA_PATH = os.path.join(
-    OUTPUT_DIR, "tfx_metadata", configs.PIPELINE_NAME, "metadata.db"
-)
+PIPELINE_ROOT = os.path.join(OUTPUT_DIR, "tfx_pipeline_output", configs.PIPELINE_NAME)
+METADATA_PATH = os.path.join(OUTPUT_DIR, "tfx_metadata", configs.PIPELINE_NAME, "metadata.db")
 
 # The last component of the pipeline, "Pusher" will produce serving model under
 # SERVING_MODEL_DIR.

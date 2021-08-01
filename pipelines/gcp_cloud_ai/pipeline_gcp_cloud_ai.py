@@ -10,9 +10,7 @@ pipeline_name = "consumer_complaint_pipeline_cloud_ai_to_cloud_bucket"
 
 # temp yaml file for Kubeflow Pipelines
 output_filename = f"{pipeline_name}.yaml"
-output_dir = os.path.join(
-    os.getcwd(), "pipelines", "gcp_cloud_ai", "argo_pipeline_files"
-)
+output_dir = os.path.join(os.getcwd(), "pipelines", "gcp_cloud_ai", "argo_pipeline_files")
 
 # Directory and data locations (uses Google Cloud Storage).
 input_bucket = "gs://consumer_complaint_gcp_cloud_ai"
@@ -66,12 +64,16 @@ if ai_platform_distributed_training:
     from tfx.orchestration import data_types
 
     worker_count = data_types.RuntimeParameter(
-        name="worker-count", default=4, ptype=int,
+        name="worker-count",
+        default=4,
+        ptype=int,
     )
 
     # Type of worker machines used in distributed training.
     worker_type = data_types.RuntimeParameter(
-        name="worker-type", default="standard", ptype=str,
+        name="worker-type",
+        default="standard",
+        ptype=str,
     )
 
     ai_platform_training_args.update(
@@ -127,7 +129,7 @@ if __name__ == "__main__":
         module_file,
         ai_platform_training_args=ai_platform_training_args,
         # serving_model_dir=serving_model_dir,
-        ai_platform_serving_args=ai_platform_serving_args
+        ai_platform_serving_args=ai_platform_serving_args,
     )
 
     p = pipeline.Pipeline(

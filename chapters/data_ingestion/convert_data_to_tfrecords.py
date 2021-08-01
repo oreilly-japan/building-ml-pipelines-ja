@@ -8,9 +8,7 @@ from tqdm import tqdm
 
 
 def _bytes_feature(value):
-    return tf.train.Feature(
-        bytes_list=tf.train.BytesList(value=[value.encode()])
-    )
+    return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value.encode()]))
 
 
 def _float_feature(value):
@@ -54,9 +52,7 @@ with open(original_data_file) as csv_file:
                     "company": _bytes_feature(row["company"]),
                     "company_response": _bytes_feature(row["company_response"]),
                     "timely_response": _bytes_feature(row["timely_response"]),
-                    "consumer_disputed": _bytes_feature(
-                        row["consumer_disputed"]
-                    ),
+                    "consumer_disputed": _bytes_feature(row["consumer_disputed"]),
                 }
             )
         )

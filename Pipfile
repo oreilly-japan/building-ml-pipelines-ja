@@ -17,6 +17,6 @@ python_version = "3.8"
 
 [scripts]
 isort = "isort . -c"
-flake8 = "flake8 doccano_api_client"
+flake8 = "flake8 chapters"
 darglint = "darglint"
 black = "black --check ."
