@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jupyter
+  labels:
+    app: jupyter
+spec:
+  selector:
+    matchLabels:
+      app: jupyter
+  template:
+    metadata:
+      labels:
+        app: jupyter
+    spec:
+      containers:
+      - image: jupyter/tensorflow-notebook
+        name: jupyter
+        ports:
+        - containerPort: 8888
+          name: jupyter
+        volumeMounts:
+        - name: notebooks
+          mountPath: /home/jovyan
+      volumes:
+      - name: notebooks
+        persistentVolumeClaim:
+          claimName: notebooks
