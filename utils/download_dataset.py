@@ -17,13 +17,10 @@ LOCAL_FILE_NAME = "data/consumer_complaints_with_narrative.csv"
 def download_dataset(url=DATASET_URL):
     """download_dataset downloads the remote dataset to a local path
 
-    Keyword Arguments:
-        url {string} --
-            complete url path to the csv data source (default: {DATASET_URL})
-        local_path {string} --
+    Args:
+        url (str): complete url path to the csv data source (default: {DATASET_URL})
+            local_path {string} --
             initial local file location (default: {LOCAL_FILE_NAME})
-    Returns:
-        None
     """
     df = pd.read_csv(url, index_col=0)
     df.to_csv(LOCAL_FILE_NAME)
@@ -31,11 +28,7 @@ def download_dataset(url=DATASET_URL):
 
 
 def create_folder():
-    """Creates a data folder if it doesn't exist.
-
-    Returns:
-        None
-    """
+    """Creates a data folder if it doesn't exist."""
     directory = "data/"
     if not os.path.exists(directory):
         os.makedirs(directory)

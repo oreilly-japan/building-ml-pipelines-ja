@@ -31,11 +31,11 @@ def fill_in_missing(x: Union[tf.Tensor, tf.SparseTensor]) -> tf.Tensor:
     dense tensor.
 
     Args:
-      x: A `SparseTensor` of rank 2.  Its dense shape should have
-        size at most 1 in the second dimension.
+        x: A `SparseTensor` of rank 2.  Its dense shape should have
+            size at most 1 in the second dimension.
 
     Returns:
-      A rank 1 tensor where missing values of `x` have been filled in.
+        A rank 1 tensor where missing values of `x` have been filled in.
     """
     if isinstance(x, tf.sparse.SparseTensor):
         default_value = "" if x.dtype == tf.string else 0
@@ -49,9 +49,12 @@ def fill_in_missing(x: Union[tf.Tensor, tf.SparseTensor]) -> tf.Tensor:
 def convert_num_to_one_hot(label_tensor, num_labels=2):
     """
     Convert a label (0 or 1) into a one-hot vector
+
     Args:
-        int: label_tensor (0 or 1)
-    Returns
+        label_tensor: label_tensor (0 or 1)
+        num_labels: the number of labels
+
+    Returns:
         label tensor
     """
     one_hot_tensor = tf.one_hot(label_tensor, num_labels)
@@ -65,7 +68,8 @@ def convert_zip_code(zipcode):
     replacing those characters to 000 to simplify the bucketing later on.
 
     Args:
-        str: zipcode
+        zipcode (str): zipcode
+
     Returns:
         zipcode: int64
     """
@@ -80,10 +84,10 @@ def preprocessing_fn(inputs):
     """tf.transform's callback function for preprocessing inputs.
 
     Args:
-      inputs: map from feature keys to raw not-yet-transformed features.
+        inputs: map from feature keys to raw not-yet-transformed features.
 
     Returns:
-      Map from string feature key to transformed feature operations.
+        Map from string feature key to transformed feature operations.
     """
     outputs = {}
 

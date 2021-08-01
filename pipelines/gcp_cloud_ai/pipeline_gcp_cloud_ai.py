@@ -2,7 +2,6 @@ import os
 import sys
 
 import absl
-import tfx.components.base.executor_spec
 from tfx.orchestration import pipeline
 from tfx.orchestration.kubeflow import kubeflow_dag_runner
 

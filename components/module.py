@@ -41,11 +41,11 @@ def fill_in_missing(x: Union[tf.Tensor, tf.SparseTensor]) -> tf.Tensor:
     dense tensor.
 
     Args:
-      x: A `SparseTensor` of rank 2.  Its dense shape should have
-        size at most 1 in the second dimension.
+        x: A `SparseTensor` of rank 2.  Its dense shape should have
+            size at most 1 in the second dimension.
 
     Returns:
-      A rank 1 tensor where missing values of `x` have been filled in.
+        A rank 1 tensor where missing values of `x` have been filled in.
     """
     if isinstance(x, tf.sparse.SparseTensor):
         default_value = "" if x.dtype == tf.string else 0
@@ -59,10 +59,13 @@ def fill_in_missing(x: Union[tf.Tensor, tf.SparseTensor]) -> tf.Tensor:
 def convert_num_to_one_hot(label_tensor: tf.Tensor, num_labels: int = 2) -> tf.Tensor:
     """
     Convert a label (0 or 1) into a one-hot vector
+
     Args:
-        int: label_tensor (0 or 1)
-    Returns
-        label tensor
+        label_tensor: label_tensor (0 or 1)
+        num_labels: the number of labels
+
+    Returns:
+        tf.Tensor: label tensor
     """
     one_hot_tensor = tf.one_hot(label_tensor, num_labels)
     return tf.reshape(one_hot_tensor, [-1, num_labels])
@@ -75,7 +78,8 @@ def convert_zip_code(zipcode: str) -> tf.float32:
     replacing those characters to 000 to simplify the bucketing later on.
 
     Args:
-        str: zipcode
+        zipcode (str): zipcode
+
     Returns:
         zipcode: int64
     """
@@ -90,10 +94,10 @@ def preprocessing_fn(inputs: tf.Tensor) -> tf.Tensor:
     """tf.transform's callback function for preprocessing inputs.
 
     Args:
-      inputs: map from feature keys to raw not-yet-transformed features.
+        inputs: map from feature keys to raw not-yet-transformed features.
 
     Returns:
-      Map from string feature key to transformed feature operations.
+        Map from string feature key to transformed feature operations.
     """
     outputs = {}
 
@@ -210,12 +214,12 @@ def _input_fn(file_pattern, tf_transform_output, batch_size=64):
     """Generates features and label for tuning/training.
 
     Args:
-    file_pattern: input tfrecord file pattern.
-    tf_transform_output: A TFTransformOutput.
-    batch_size: representing the number of consecutive elements of returned
-      dataset to combine in a single batch
+        file_pattern: input tfrecord file pattern.
+        tf_transform_output: A TFTransformOutput.
+        batch_size: representing the number of consecutive elements of returned
+            dataset to combine in a single batch
 
-      Returns:
+    Returns:
         A dataset that contains (features, indices) tuple where features is a
           dictionary of Tensors, and indices is a single Tensor of
           label indices.
@@ -238,7 +242,7 @@ def run_fn(fn_args):
     """Train the model based on given args.
 
     Args:
-    fn_args: Holds args used to train the model as name/value pairs.
+        fn_args: Holds args used to train the model as name/value pairs.
     """
     tf_transform_output = tft.TFTransformOutput(fn_args.transform_output)
 

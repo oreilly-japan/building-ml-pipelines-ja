@@ -16,6 +16,12 @@ def get_model(show_summary=True):
     """
     This function defines a Keras model and returns the model as a
     Keras object.
+
+    Args:
+        show_summary (bool): show model architecture.
+
+    Returns:
+        tf.keras.Model: model
     """
 
     # one-hot categorical features
@@ -99,7 +105,7 @@ def _input_fn(file_pattern, tf_transform_output, batch_size=64):
         file_pattern: input tfrecord file pattern.
         tf_transform_output: A TFTransformOutput.
         batch_size: representing the number of consecutive elements of
-          returned dataset to combine in a single batch
+            returned dataset to combine in a single batch
 
     Returns:
         A dataset that contains (features, indices) tuple where features
@@ -124,7 +130,7 @@ def run_fn(fn_args):
     """Train the model based on given args.
 
     Args:
-    fn_args: Holds args used to train the model as name/value pairs.
+        fn_args: Holds args used to train the model as name/value pairs.
     """
     tf_transform_output = tft.TFTransformOutput(fn_args.transform_output)
 

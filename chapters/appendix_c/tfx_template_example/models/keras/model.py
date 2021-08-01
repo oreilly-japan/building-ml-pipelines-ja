@@ -57,14 +57,14 @@ def _input_fn(file_pattern, tf_transform_output, batch_size=200):
     """Generates features and label for tuning/training.
 
     Args:
-      file_pattern: input tfrecord file pattern.
-      tf_transform_output: A TFTransformOutput.
-      batch_size: representing the number of consecutive elements of returned
-        dataset to combine in a single batch
+        file_pattern: input tfrecord file pattern.
+        tf_transform_output: A TFTransformOutput.
+        batch_size: representing the number of consecutive elements of returned
+            dataset to combine in a single batch
 
     Returns:
-      A dataset that contains (features, indices) tuple where features is a
-        dictionary of Tensors, and indices is a single Tensor of label indices.
+        dataset: A dataset that contains (features, indices) tuple where features is a
+            dictionary of Tensors, and indices is a single Tensor of label indices.
     """
     transformed_feature_spec = tf_transform_output.transformed_feature_spec().copy()
 
@@ -140,7 +140,7 @@ def run_fn(fn_args):
     """Train the model based on given args.
 
     Args:
-      fn_args: Holds args used to train the model as name/value pairs.
+        fn_args: Holds args used to train the model as name/value pairs.
     """
 
     tf_transform_output = tft.TFTransformOutput(fn_args.transform_output)
