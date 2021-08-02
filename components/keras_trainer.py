@@ -12,16 +12,14 @@ from transform import (
 )
 
 
-def get_model(show_summary=True):
-    """
-    This function defines a Keras model and returns the model as a
-    Keras object.
+def get_model(show_summary: bool = True) -> tf.keras.Model:
+    """This function returns a Keras model.
 
     Args:
         show_summary (bool): show model architecture.
 
     Returns:
-        tf.keras.Model: model
+        tf.keras.Model: Keras model.
     """
 
     # one-hot categorical features
@@ -80,7 +78,6 @@ def _gzip_reader_fn(filenames):
 
 def _get_serve_tf_examples_fn(model, tf_transform_output):
     """Returns a function that parses a serialized tf.Example."""
-
     model.tft_layer = tf_transform_output.transform_features_layer()
 
     @tf.function

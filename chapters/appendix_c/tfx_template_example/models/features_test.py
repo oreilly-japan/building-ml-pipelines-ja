@@ -12,16 +12,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-from __future__ import absolute_import, division, print_function
-
 import tensorflow as tf
 from models import features
 
 
 class FeaturesTest(tf.test.TestCase):
     def testOneHotFeatures(self):
-
         for name, num_options in features.ONE_HOT_FEATURES.items():
             self.assertTrue(isinstance(name, str))
             self.assertTrue(isinstance(num_options, int))

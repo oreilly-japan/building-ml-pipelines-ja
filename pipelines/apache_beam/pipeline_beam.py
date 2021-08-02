@@ -2,7 +2,7 @@ import os
 import sys
 from typing import Text
 
-import absl
+import absl.logging
 from tfx.orchestration import metadata, pipeline
 from tfx.orchestration.beam.beam_dag_runner import BeamDagRunner
 

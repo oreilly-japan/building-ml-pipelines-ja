@@ -25,7 +25,7 @@ def clean_rows(row):
     return row
 
 
-def convert_zipcode_to_int(zipcode):
+def convert_zipcode_to_int(zipcode: str):
     if isinstance(zipcode, str) and "XX" in zipcode:
         zipcode = zipcode.replace("XX", "00")
     int_zipcode = int(zipcode)

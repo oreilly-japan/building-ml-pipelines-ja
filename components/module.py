@@ -1,15 +1,11 @@
 import os
-from typing import Union
+from typing import Dict, Union
 
 import tensorflow as tf
 import tensorflow_hub as hub
 import tensorflow_transform as tft
 
 LABEL_KEY = "consumer_disputed"
-
-################
-# Transform code
-################
 
 # feature name, feature dimensionality
 ONE_HOT_FEATURES = {
@@ -31,6 +27,7 @@ os.environ["TFHUB_CACHE_DIR"] = "tmp/tfhub"
 
 
 def transformed_name(key: str) -> str:
+    """Makes a transformed name"""
     return key + "_xf"
 
 
@@ -45,7 +42,7 @@ def fill_in_missing(x: Union[tf.Tensor, tf.SparseTensor]) -> tf.Tensor:
             size at most 1 in the second dimension.
 
     Returns:
-        A rank 1 tensor where missing values of `x` have been filled in.
+        tf.Tensor: A rank 1 tensor where missing values of `x` have been filled in.
     """
     if isinstance(x, tf.sparse.SparseTensor):
         default_value = "" if x.dtype == tf.string else 0
@@ -57,8 +54,7 @@ def fill_in_missing(x: Union[tf.Tensor, tf.SparseTensor]) -> tf.Tensor:
 
 
 def convert_num_to_one_hot(label_tensor: tf.Tensor, num_labels: int = 2) -> tf.Tensor:
-    """
-    Convert a label (0 or 1) into a one-hot vector
+    """Convert a label (0 or 1) into a one-hot vector
 
     Args:
         label_tensor: label_tensor (0 or 1)
@@ -72,16 +68,16 @@ def convert_num_to_one_hot(label_tensor: tf.Tensor, num_labels: int = 2) -> tf.T
 
 
 def convert_zip_code(zipcode: str) -> tf.float32:
-    """
-    Convert a zipcode string to int64 representation. In the dataset the
-    zipcodes are anonymized by repacing the last 3 digits to XXX. We are
-    replacing those characters to 000 to simplify the bucketing later on.
+    """Convert a zipcode string to int64 representation.
+
+    In the dataset the zipcodes are anonymized by repacing the last 3 digits to XXX.
+    We are replacing those characters to 000 to simplify the bucketing later on.
 
     Args:
         zipcode (str): zipcode
 
     Returns:
-        zipcode: int64
+        tf.float32: the converted zipcode
     """
     if zipcode == "":
         zipcode = "00000"
@@ -90,7 +86,7 @@ def convert_zip_code(zipcode: str) -> tf.float32:
     return zipcode
 
 
-def preprocessing_fn(inputs: tf.Tensor) -> tf.Tensor:
+def preprocessing_fn(inputs: tf.Tensor) -> Dict[str, tf.Tensor]:
     """tf.transform's callback function for preprocessing inputs.
 
     Args:
@@ -126,14 +122,14 @@ def preprocessing_fn(inputs: tf.Tensor) -> tf.Tensor:
     return outputs
 
 
-################
-# Model code
-################
+def get_model(show_summary: bool = True) -> tf.keras.Model:
+    """This function returns a Keras model.
 
+    Args:
+        show_summary (bool): show model architecture.
 
-def get_model(show_summary: bool = True) -> tf.keras.models.Model:
-    """
-    This function defines a Keras model and returns the model as a Keras object.
+    Returns:
+        tf.keras.Model: Keras model.
     """
 
     # one-hot categorical features
@@ -192,7 +188,6 @@ def _gzip_reader_fn(filenames):
 
 def _get_serve_tf_examples_fn(model, tf_transform_output):
     """Returns a function that parses a serialized tf.Example."""
-
     model.tft_layer = tf_transform_output.transform_features_layer()
 
     @tf.function

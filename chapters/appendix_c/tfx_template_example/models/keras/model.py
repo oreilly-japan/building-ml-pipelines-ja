@@ -36,7 +36,6 @@ def _gzip_reader_fn(filenames):
 
 def _get_serve_tf_examples_fn(model, tf_transform_output):
     """Returns a function that parses a serialized tf.Example and applies TFT."""
-
     model.tft_layer = tf_transform_output.transform_features_layer()
 
     @tf.function
@@ -79,10 +78,8 @@ def _input_fn(file_pattern, tf_transform_output, batch_size=200):
     return dataset
 
 
-def get_model(show_summary: bool = True) -> tf.keras.models.Model:
-    """
-    This function defines a Keras model and returns the model as a Keras object.
-    """
+def get_model(show_summary: bool = True) -> tf.keras.Model:
+    """This function returns a Keras model."""
 
     # one-hot categorical features
     input_features = []
@@ -120,7 +117,7 @@ def get_model(show_summary: bool = True) -> tf.keras.models.Model:
 
     inputs = input_features + input_texts
 
-    keras_model = tf.keras.models.Model(inputs, output)
+    keras_model = tf.keras.Model(inputs, output)
     keras_model.compile(
         optimizer=tf.keras.optimizers.Adam(learning_rate=constants.LEARNING_RATE),
         loss="binary_crossentropy",

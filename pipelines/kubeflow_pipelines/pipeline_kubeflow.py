@@ -4,7 +4,7 @@ import os
 import sys
 from typing import Text
 
-import absl
+import absl.logging
 from kfp import onprem
 from tfx.orchestration import pipeline
 from tfx.orchestration.kubeflow import kubeflow_dag_runner

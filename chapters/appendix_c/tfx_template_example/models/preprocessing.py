@@ -16,10 +16,7 @@
 
 This file defines a template for TFX Transform component.
 """
-
-from __future__ import division, print_function
-
-from typing import Union
+from typing import Dict, Union
 
 import tensorflow as tf
 import tensorflow_transform as tft
@@ -81,7 +78,7 @@ def convert_zip_code(zipcode: str) -> tf.float32:
     return zipcode
 
 
-def preprocessing_fn(inputs: tf.Tensor) -> tf.Tensor:
+def preprocessing_fn(inputs: tf.Tensor) -> Dict[str, tf.Tensor]:
     """tf.transform's callback function for preprocessing inputs.
 
     Args:

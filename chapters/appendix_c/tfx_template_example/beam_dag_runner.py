@@ -53,7 +53,6 @@ DATA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 
 def run():
     """Define a beam pipeline."""
-
     BeamDagRunner().run(
         pipeline.create_pipeline(
             pipeline_name=configs.PIPELINE_NAME,

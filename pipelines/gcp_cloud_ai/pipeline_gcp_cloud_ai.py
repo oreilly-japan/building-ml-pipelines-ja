@@ -1,7 +1,7 @@
 import os
 import sys
 
-import absl
+import absl.logging
 from tfx.orchestration import pipeline
 from tfx.orchestration.kubeflow import kubeflow_dag_runner
 

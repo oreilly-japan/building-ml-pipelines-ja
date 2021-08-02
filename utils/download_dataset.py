@@ -19,8 +19,6 @@ def download_dataset(url=DATASET_URL):
 
     Args:
         url (str): complete url path to the csv data source (default: {DATASET_URL})
-            local_path {string} --
-            initial local file location (default: {LOCAL_FILE_NAME})
     """
     df = pd.read_csv(url, index_col=0)
     df.to_csv(LOCAL_FILE_NAME)
@@ -38,12 +36,11 @@ def create_folder():
 
 
 def check_execution_path():
-    """Check if the function and therefore all subsequent functions
+    """Check if the function and all subsequent functions
         are executed from the root of the project
 
     Returns:
-        boolean -- returns False if execution path isn't the root,
-            otherwise True
+        bool: returns False if execution path isn't the root, otherwise True
     """
     file_name = "LICENSE"
     if not os.path.exists(file_name):

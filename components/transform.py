@@ -35,7 +35,7 @@ def fill_in_missing(x: Union[tf.Tensor, tf.SparseTensor]) -> tf.Tensor:
             size at most 1 in the second dimension.
 
     Returns:
-        A rank 1 tensor where missing values of `x` have been filled in.
+        tf.Tensor: A rank 1 tensor where missing values of `x` have been filled in.
     """
     if isinstance(x, tf.sparse.SparseTensor):
         default_value = "" if x.dtype == tf.string else 0
@@ -46,32 +46,31 @@ def fill_in_missing(x: Union[tf.Tensor, tf.SparseTensor]) -> tf.Tensor:
     return tf.squeeze(x, axis=1)
 
 
-def convert_num_to_one_hot(label_tensor, num_labels=2):
-    """
-    Convert a label (0 or 1) into a one-hot vector
+def convert_num_to_one_hot(label_tensor: tf.Tensor, num_labels: int = 2) -> tf.Tensor:
+    """Convert a label (0 or 1) into a one-hot vector
 
     Args:
         label_tensor: label_tensor (0 or 1)
         num_labels: the number of labels
 
     Returns:
-        label tensor
+        tf.Tensor: label tensor
     """
     one_hot_tensor = tf.one_hot(label_tensor, num_labels)
     return tf.reshape(one_hot_tensor, [-1, num_labels])
 
 
-def convert_zip_code(zipcode):
-    """
-    Convert a zipcode string to int64 representation. In the dataset the
-    zipcodes are anonymized by repacing the last 3 digits to XXX. We are
-    replacing those characters to 000 to simplify the bucketing later on.
+def convert_zip_code(zipcode: str) -> tf.float32:
+    """Convert a zipcode string to int64 representation.
+
+    In the dataset the zipcodes are anonymized by repacing the last 3 digits to XXX.
+    We are replacing those characters to 000 to simplify the bucketing later on.
 
     Args:
         zipcode (str): zipcode
 
     Returns:
-        zipcode: int64
+        tf.float32: the converted zipcode
     """
     if zipcode == "":
         zipcode = "00000"
