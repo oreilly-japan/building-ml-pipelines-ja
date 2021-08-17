@@ -13,7 +13,8 @@
 各章のノートブックがあります。また、それぞれのノートブックはGoogle Colaboratoryを使いブラウザで実行できます。
 
 - [サンプルパイプラインのコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/interactive-pipeline/interactive_pipeline.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1Yy9QdVD7xHjCaYezOm3vhCsKZjWs8vik?usp=sharing)
-- [1章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/data_ingestion/data_ingestion.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1z0ymuyD3FL6WXbqbdQuZYRZPJaFvy6gz?usp=sharing)
+- [2章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/dev/chapters/intro_tfx/Apache_beam_example_notebook.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1VbYmZRrt-68LwMZzlr_Ielllskj8ag7h?usp=sharing)
+- [3章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/data_ingestion/data_ingestion.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1z0ymuyD3FL6WXbqbdQuZYRZPJaFvy6gz?usp=sharing)
 
 ## サンプルコード
 
