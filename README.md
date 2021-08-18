@@ -16,6 +16,7 @@
 - [2章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/intro_tfx/Apache_beam_example_notebook.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1VbYmZRrt-68LwMZzlr_Ielllskj8ag7h?usp=sharing)
 - [3章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/data_ingestion/data_ingestion.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1z0ymuyD3FL6WXbqbdQuZYRZPJaFvy6gz?usp=sharing)
 - [4章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/data_validation/data_validation.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1PoEXmZztor8oehh03UqYrj51jJcxYQjE?usp=sharing)
+- [7章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/model_analysis/model_analysis.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1ai4dV75JZKto4FAABrhwemThIQ7nMgx7?usp=sharing)
 
 ## サンプルコード
 
