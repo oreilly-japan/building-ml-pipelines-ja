@@ -18,6 +18,7 @@
 - [4章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/data_validation/data_validation.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1PoEXmZztor8oehh03UqYrj51jJcxYQjE?usp=sharing)
 - [7章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/model_analysis/model_analysis.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1ai4dV75JZKto4FAABrhwemThIQ7nMgx7?usp=sharing)
 - [10章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/adv_tfx/Custom_TFX_Components.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1VUfmS_fti2wHurq6phBINuVjD889CMwA?usp=sharing)
+- [14章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/data_privacy/differential_privacy.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1g5_10KM0gDzZuxRKu0nfd4pVTsN-f2nA?usp=sharing)
 
 ## サンプルコード
 
