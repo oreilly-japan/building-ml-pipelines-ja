@@ -1,0 +1,31 @@
+name: Python application
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8==3.9.2 isort==5.9.3 black==21.7b0 darglint==1.8.0
+    - name: Lint with flake8
+      run: |
+        flake8 .
+    - name: Run black
+      run: | 
+        black --check .
+    - name: Lint with isort
+      run: |
+        isort . -c
+    - name: Lint with darglint
+      run: |
+        find . -name "*.py" | darglint
