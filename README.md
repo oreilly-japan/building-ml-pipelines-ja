@@ -20,25 +20,23 @@
 - [10章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/adv_tfx/Custom_TFX_Components.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1VUfmS_fti2wHurq6phBINuVjD889CMwA?usp=sharing)
 - [14章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/data_privacy/differential_privacy.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1g5_10KM0gDzZuxRKu0nfd4pVTsN-f2nA?usp=sharing)
 
-## サンプルコード
+フォルダの構成に関しては、以下の通りです。
 
-### ファイル構成
+| フォルダ名                   | 説明                                          |
+| ----------------------- | ------------------------------------------- |
+| chapters                | 各章に関するコードを含む                                |
+| components              | 顧客の苦情データに対する前処理やモデルのコードを含む                  |
+| interactive-pipeline    | 顧客の苦情データに対するインタラクティブなTFXパイプラインのコードを含む       |
+| pipelines               | さまざまなオーケストレーターに対するパイプライン全体を含む。詳細は11章と12章を参照 |
+| pre-experiment-pipeline | 著者たちの特徴エンジニアリングやモデルアーキテクチャに関する実験のコードを含む     |
+| requirements            | 実行に必要なPythonパッケージに関する情報を含む                  |
+| utils                   | データセットのダウンロードに関するコードを含む                     |
 
-|フォルダ名              |説明                         |
-|:--                     |:--                          |
-|chapters                |ほげほげ...                  |
-|components              |ほげほげ...                  |
-|interactive-pipeline    |顧客の苦情データに対するインタラクティブなTFXパイプラインのコードを含む|
-|pipelines               |さまざまなオーケストレーターに対するパイプライン全体を含む。             |
-|pre-experiment-pipeline |ほげほげ...                  |
-|requirements            |ほげほげ...                  |
-|utils                   |ほげほげ...                  |
+## データセットのダウンロード
 
-The `pipelines` folder contains complete pipelines for the various orchestrators. See Chapters 11 and 12 for full details.
+The data that we use in this example project can be downloaded using the script above. The dataset is from a public dataset on customer complaints collected from the US Consumer Finance Protection Bureau. If you would like to reproduce our edited dataset, carry out the following steps:
 
-## デモプロジェクトの準備
-
-まずはデータセットをダウンロードします。リポジトリのルートで次のスクリプトを実行します。
+サンプルプロジェクトで使うデータは、`utils/download_dataset.py`を実行することでダウンロードできます。データセットは、米消費者金融保護局が提供している顧客の苦情に関する公開データセットです。データセットをダウンロードするには、リポジトリのルートで次のスクリプトを実行します。
 
 ```bash
 python utils/download_dataset.py
