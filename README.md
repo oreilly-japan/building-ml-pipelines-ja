@@ -34,8 +34,6 @@
 
 ## データセットのダウンロード
 
-The data that we use in this example project can be downloaded using the script above. The dataset is from a public dataset on customer complaints collected from the US Consumer Finance Protection Bureau. If you would like to reproduce our edited dataset, carry out the following steps:
-
 サンプルプロジェクトで使うデータは、`utils/download_dataset.py`を実行することでダウンロードできます。データセットは、米消費者金融保護局が提供している顧客の苦情に関する公開データセットです。データセットをダウンロードするには、リポジトリのルートで次のスクリプトを実行します。
 
 ```bash
