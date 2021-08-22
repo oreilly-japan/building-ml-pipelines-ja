@@ -16,16 +16,16 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pipenv
-        pipenv sync --dev
+        pip install flake8==3.9.2 isort==5.9.3 black==21.7b0 darglint==1.8.0
     - name: Lint with flake8
       run: |
-        pipenv run flake8
+        flake8 .
     - name: Run black
-      run: pipenv run black
+      run: | 
+        black --check .
     - name: Lint with isort
       run: |
-        pipenv run isort
+        isort . -c
     - name: Lint with darglint
       run: |
-        find . -name "*.py" | xargs pipenv run darglint
+        find . -name "*.py" | darglint
