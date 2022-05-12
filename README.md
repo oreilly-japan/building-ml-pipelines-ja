@@ -10,7 +10,7 @@
 
 ## レポジトリの構成
 
-各章のノートブックがあります。また、それぞれのノートブックは、 Googleの無料の計算環境である[Colaboratory](https://colab.research.google.com/)、もしくは、AWSの無料の計算環境である[Amazon SageMaker Studio Lab](https://studiolab.sagemaker.aws/)を利用してブラウザで実行できます。SageMaker Studio Labの使い方は[こちら](./README_studio-lab.md)をご覧ください。
+各章のノートブックがあります。また、それぞれのノートブックは、 Googleの無料の計算環境である[Colaboratory](https://colab.research.google.com/)、もしくは、AWSの無料の計算環境である[Amazon SageMaker Studio Lab](https://studiolab.sagemaker.aws/)を利用してブラウザで実行できます。SageMaker Studio Labの使い方は[こちら](https://github.com/aws-studiolab-jp/awesome-studio-lab-jp/blob/main/README_usage.md)をご覧ください。
 
 - [サンプルパイプラインのコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/interactive-pipeline/interactive_pipeline.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1Yy9QdVD7xHjCaYezOm3vhCsKZjWs8vik?usp=sharing) | [![Open In SageMaker Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/interactive-pipeline/interactive_pipeline.ipynb)
 - [2章のサンプルコード](https://github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/intro_tfx/Apache_beam_example_notebook.ipynb)/[Google Colabで開く](https://colab.research.google.com/drive/1VbYmZRrt-68LwMZzlr_Ielllskj8ag7h?usp=sharing) | [![Open In SageMaker Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github.com/oreilly-japan/building-ml-pipelines-ja/blob/master/chapters/intro_tfx/Apache_beam_example_notebook.ipynb)
